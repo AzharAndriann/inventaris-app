@@ -5,21 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DataBarang extends Model
+class GenerateLaporan extends Model
 {
     use HasFactory;
 
-    protected $table = 'data_barangs';
+    protected $table = 'generate_laporans';
 
     protected $fillable = [
-        'kode_pembelian',
-        'kode_barang',
         'nama_barang',
-        'merk',
-        'jumlah',
-        'harga',
-        'total',
+        'tanggal_pembelian',
+        'tanggal_pemakaian',
+        'ruangan',
     ];
-
-    
 }

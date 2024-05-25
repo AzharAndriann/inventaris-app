@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_pembelian', function (Blueprint $table) {
+        Schema::create('data_pembelians', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_barang');
-            $table->string('merk');
+            $table->string('kode_pembelian',9)->unique();
+            $table->string('nama_barang',25);
+            $table->string('merk',25);
             $table->integer('jumlah');
             $table->integer('harga');
             $table->integer('total');
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_pembelian');
+        Schema::dropIfExists('data_pembelians');
     }
 };

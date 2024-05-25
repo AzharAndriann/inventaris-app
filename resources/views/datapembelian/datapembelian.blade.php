@@ -1,141 +1,88 @@
-@extends('layouts.app')
+@extends('layouts.app-admin')
 @section('content')
 
-{{-- <div class="relative overflow-x-auto shadow-md ml-60">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    No
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Nama Barang
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Merk/Type
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Jumlah
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Harga
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Total
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Aksi
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach($data as $d)
-            <tr class="bg-white border-b">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                    {{$loop->iteration}}
-                </th>
-                <td class="px-6 py-4">
-                    {{$d->nama_barang}}
-                </td>
-                <td class="px-6 py-4">
-                    {{$d->merk}}
-                </td>
-                <td class="px-6 py-4">
-                    {{$d->jumlah}}
-                </td>
-                <td class="px-6 py-4">
-                    {{$d->harga}}
-                </td>
-                <td class="px-6 py-4">
-                    {{$d->total}}
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                </td>
-            </tr>
-            @endforeach
-
-        </tbody>
-    </table>
-</div> --}}
-
-<div class="wrapper">
+<div class="wrapper bg-light2 flex">
     <div class="sidebar">
-        @include('partials.sidebar')
+        @include('partials.sidebar-admin')
     </div>
-    <div class="main">
+    <div class="main bg-light2 flex-grow">
         <div class="navbar-custom">
-            @include('partials.navbar')
+            @include('partials.navbar-admin')
         </div>
-        <div class="d-flex">
-            <h3>Data Pembelian</h3>
-            <a href="" class="py-1 px-3 text-center align-items-center d-flex rounded text-decoration-none button ms-auto"><i class="fa-solid fa-user-plus me-2"></i>Tambah Data Pembelian</a>
-          </div>
-        <main class="content px-3 py-2">
-            <div class="container-fluid">
-                <!-- Table Element -->
-                <div class="card border-0">
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">
-                                        No
-                                    </th>
-                                    <th scope="col">
-                                        Nama Barang
-                                    </th>
-                                    <th scope="col">
-                                        Merk/Type
-                                    </th>
-                                    <th scope="col">
-                                        Jumlah
-                                    </th>
-                                    <th scope="col">
-                                        Harga
-                                    </th>
-                                    <th scope="col">
-                                        Total
-                                    </th>
-                                    <th scope="col">
-                                        Aksi
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                @foreach($data as $d)
-                                <tr>
-                                    <th>
-                                        {{$loop->iteration}}
-                                    </th>
-                                    <td>
-                                        {{$d->nama_barang}}
-                                    </td>
-                                    <td>
-                                        {{$d->merk}}
-                                    </td>
-                                    <td>
-                                        {{$d->jumlah}}
-                                    </td>
-                                    <td>
-                                        {{$d->harga}}
-                                    </td>
-                                    <td>
-                                        {{$d->total}}
-                                    </td>
-                                    <td>
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                    
-                            </tbody>
-                        </table>
+        <div class="antialiased font-sans min-h-screen">
+            <div class="py-8 px-4 w-1/1 ms-[323px] rounded-lg me-[6px] mt-[80px]">
+                <div class="overflow-x-auto bg-light1 bg-opacity-70 backdrop-blur-lg shadow-lg p-2 rounded-lg">
+                    <div class="flex justify-between items-center ps-3 pe-3 mt-3 mb-4">
+                        <h1 class="text-light7 text-lg font-bold">Data Pembelian</h1>
+                        <a href="{{ route('admin.add-pembelian') }}" class="bg-gradient-to-br from-pink-600 via-fuchsia-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:bg-gradient-to-bl">Tambah Pembelian</a>
                     </div>
+                    <table class="min-w-full bg-none text-light9 mb-10">
+                        <thead class="bg-none">
+                            <tr>
+                                <th class="py-2 px-4  border-b border-gray-300">No</th>
+                                <th class="py-2 px-4  border-b border-gray-300">Kode Pembelian</th>
+                                <th class="py-2 px-4  border-b border-gray-300">Kode Barang</th>
+                                <th class="py-2 px-4  border-b border-gray-300">Nama Barang</th>
+                                <th class="py-2 px-4  border-b border-gray-300">Merk</th>
+                                <th class="py-2 px-4  border-b border-gray-300">Jumlah</th>
+                                <th class="py-2 px-3  border-b border-gray-300">Harga</th>
+                                <th class="py-2 px-1  border-b border-gray-300">Total Harga</th>
+                                <th class="py-2 px-1  border-b border-gray-300">Tanggal Pembelian</th>
+                                <th class="py-2 px-4  border-b border-gray-300">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $item)
+                            <tr class="hover:bg-slate-300 duration-500">
+                                <td class="py-2 px-4 border-b border-gray-300">{{ $loop->iteration }}</td>
+                                <td class="py-2 px-4 border-b border-gray-300">{{$item->kode_pembelian}}</td>
+                                <td class="py-2 px-4 border-b border-gray-300">{{$item->kode_barang}}</td>
+                                <td class="py-2 px-4 border-b border-gray-300">{{$item->nama_barang}}</td>
+                                <td class="py-2 px-4 border-b border-gray-300">{{$item->merk}}</td>
+                                <td class="py-2 px-4 border-b border-gray-300">{{$item->jumlah}}</td>
+                                <td class="py-2 px-3 border-b border-gray-300 text-sm">
+                                    @php
+                                    $harga = $item->harga;
+                                    @endphp
+                                    Rp. {{$harga_terformat = number_format($harga, 0, ',', '.')}}
+                                </td>
+                                <td class="py-2 px-1 border-b border-gray-300 text-sm">
+                                    @php
+                                    $harga = $item->total;
+                                    @endphp
+                                    Rp. {{$harga_terformat = number_format($harga, 0, ',', '.')}}
+                                </td>
+                                <td class="py-2 px-1 border-b border-gray-300">{{$item->tanggal_pembelian}}</td>
+                                <td class="py-2 px-4 border-b border-gray-300">
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle link-underline link-underline-opacity-0 text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                              Option
+                                        </a>
+                                        <ul class="dropdown-menu bg-light2 bg-opacity-70 backdrop-blur-3xl shadow-lg">
+                                            <li>
+                                                <a class="dropdown-item text-light9 hover:bg-slate-300 duration-500 rounded-lg hover:text-light9" href="{{ route('admin.edit-data-pembelian',['kode_pembelian' => $item->kode_pembelian])}}"><i class="bi bi-person me-3"></i>Edit</a>
+                                            </li>
+                                            <li>
+                                                <form action="{{ route('admin.delete-data-pembelian',['kode_pembelian' => $item->kode_pembelian])}}" method="POST">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="submit" class="dropdown-item  text-red-800 hover:bg-slate-300 duration-500 rounded-lg hover:text-red-800">
+                                                        <i class="bi bi-trash me-3"></i>Delete
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                  </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 </div>
+
+
+

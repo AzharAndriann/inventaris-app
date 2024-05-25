@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -39,9 +40,13 @@
             });
         </script>
         <script>
+
+            @include('partials.sweetalert')
+
+
             
         
-        const options = {
+        var options = {
         chart: {
             height: "100%",
             maxWidth: "100%",
@@ -87,7 +92,7 @@
         series: [
             {
             name: "New users",
-            data: [6500, 6418, 6456, 6526, 6356, 6456, 6456, 6956, 6256, 6756, 6156, 6256],
+            data: [65, 61, 62, 65, 63, 64, 66, 69, 62, 67, 61, 62],
             color: "#d946ef",
             },
         ],

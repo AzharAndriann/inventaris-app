@@ -9,13 +9,15 @@ class DataPemakaian extends Model
 {
     use HasFactory;
 
-    protected $table = 'data_pemakaian';
+    protected $table = 'data_pemakaians';
 
     protected $fillable = [
+        'kode_pemakaian',
+        'kode_barang',
         'nama_barang',
         'jumlah_pakai',
         'tanggal_pakai',
-        'pemakaian',
+        'nama_ruangan',
         'keterangan',
     ];
 }

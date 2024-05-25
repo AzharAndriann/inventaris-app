@@ -14,19 +14,21 @@ class DataPembelianSeeder extends Seeder
     public function run(): void
     {
         $seed1 = DataPembelian::updateOrCreate([
+            'kode_pembelian' => 'B001',
             'nama_barang' => 'Mesin Bor',
             'merk' => 'makita',
             'jumlah' => '10',
             'harga' => '120000',
-            'total' => '120000'
+            'total' => '120000',
+            'bulan' => 'januari'
 
         ]);
-        $seed2 = DataPembelian::updateOrCreate([
-            'nama_barang' => 'Mesin Las',
-            'merk' => 'makita',
-            'Jumlah' => '15',
-            'harga' => '150000',
-            'total' => '2250000'
-        ]);
+        // $seed2 = DataPembelian::updateOrCreate([
+        //     'nama_barang' => 'Mesin Las',
+        //     'merk' => 'makita',
+        //     'Jumlah' => '15',
+        //     'harga' => '150000',
+        //     'total' => '2250000'
+        // ]);
     }
 }
