@@ -22,6 +22,7 @@
                                 <th class="py-2 px-4  border-b border-gray-300">No</th>
                                 <th class="py-2 px-4  border-b border-gray-300">Kode Pemakaian</th>
                                 <th class="py-2 px-4  border-b border-gray-300">Nama Barang</th>
+                                <th class="py-2 px-4  border-b border-gray-300">Nama Pemakai</th>
                                 <th class="py-2 px-4  border-b border-gray-300">Jumlah Pakai</th>
                                 <th class="py-2 px-4  border-b border-gray-300">Tanggal Pakai</th>
                                 <th class="py-2 px-4  border-b border-gray-300">Ruangan</th>
@@ -35,8 +36,9 @@
                                 <td class="py-2 px-4 border-b border-gray-300">{{ $loop->iteration }}</td>
                                 <td class="py-2 px-4 border-b border-gray-300">{{$item->kode_pemakaian}}</td>
                                 <td class="py-2 px-4 border-b border-gray-300">{{$item->nama_barang}}</td>
+                                <td class="py-2 px-4 border-b border-gray-300">{{$item->nama_pemakai}}</td>
                                 <td class="py-2 px-4 border-b border-gray-300">{{$item->jumlah_pakai}}</td>
-                                <td class="py-2 px-4 border-b border-gray-300">{{$item->tanggal_pakai}}</td>
+                                <td class="py-2 px-2 border-b border-gray-300">{{$item->tanggal_pakai}}</td>
                                 <td class="py-2 px-4 border-b border-gray-300">{{$item->nama_ruangan}}</td>
                                 <td class="py-2 px-4 border-b border-gray-300">{{$item->keterangan}}</td>
                                 <td class="py-2 px-4 border-b border-gray-300">

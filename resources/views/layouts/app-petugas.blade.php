@@ -21,11 +21,95 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
+        @include('partials.sweetalert')
+        <script>
+
+
+
+
+            
+        
+            var options = {
+            chart: {
+                height: "100%",
+                maxWidth: "100%",
+                type: "area",
+                fontFamily: "Inter, sans-serif",
+                dropShadow: {
+                enabled: false,
+                },
+                toolbar: {
+                show: false,
+                },
+            },
+            tooltip: {
+                enabled: true,
+                x: {
+                show: false,
+                },
+            },
+            fill: {
+                type: "gradient",
+                gradient: {
+                opacityFrom: 0.55,
+                opacityTo: 0,
+                shade: "#1C64F2",
+                gradientToColors: ["#1C64F2"],
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            stroke: {
+                width: 6,
+            },
+            grid: {
+                show: false,
+                strokeDashArray: 4,
+                padding: {
+                left: 2,
+                right: 2,
+                top: 0
+                },
+            },
+            series: [
+                {
+                name: "New users",
+                data: [65, 61, 62, 65, 63, 64, 66, 69, 62, 67, 61, 62],
+                color: "#d946ef",
+                },
+            ],
+            xaxis: {
+                categories: ['January', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'December'],
+                labels: {
+                show: false,
+                },
+                axisBorder: {
+                show: false,
+                },
+                axisTicks: {
+                show: false,
+                },
+            },
+            yaxis: {
+                show: false,
+            },
+            }
+    
+            if (document.getElementById("area-chart") && typeof ApexCharts !== 'undefined') {
+            const chart = new ApexCharts(document.getElementById("area-chart"), options);
+            chart.render();
+            }
+    
+    
+            </script>
+    
         {{-- <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 

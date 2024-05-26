@@ -1,13 +1,13 @@
-@extends('layouts.app-operator')
+@extends('layouts.app-admin')
 @section('content')
 
 <div class="wrapper bg-light2">
     <div class="sidebar">
-        @include('partials.sidebar-operator')
+        @include('partials.sidebar-admin')
     </div>
     <div class="main bg-light2">
         <div class="navbar-custom">
-            @include('partials.navbar-operator')
+            @include('partials.navbar-admin')
         </div>
         <main class="content px-3 py-2 ms-[330px] mt-[100px]">
             <div class="flex gap-3 me-3">
@@ -77,11 +77,14 @@
                     <div class="flex flex-col justify-between content-center">
                         <div class="ms-4 content-center">
                             <h1 class="text-light7 text-xl font-semibold mt-2">Inventaris CV OGAH RUGI</h1>
-                            <h2 class="text-light8 text-3xl font-bold">Dashboard Petugas</h2>
+                            <h2 class="text-light8 text-3xl font-bold">Dashboard Admin</h2>
                         </div>
                         <div class="grid place-items-center mx-auto">
                           <div class="w-[250px] h-[250px] mt-12  bg-gradient-to-br from-pink-600 via-fuchsia-600 to-purple-900 rounded-lg items-center content-center text-center">
                             <i class="bi bi-boxes text-white text-[120px]"></i>
+                          </div>
+                          <div>
+                            <a href="{{ route('admin.export')}}" class="text-white w-[250px] mt-1 bg-gradient-to-br from-pink-600 via-fuchsia-600 to-purple-600 px-5 py-2.5 rounded-lg inline-block text-center">Generate Laporan</a>
                           </div>
                         </div>
                       </div>

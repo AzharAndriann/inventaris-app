@@ -10,6 +10,7 @@ use App\Http\Controllers\GenerateLaporanController;
 use App\Http\Controllers\InventarisController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Models\GenerateLaporan;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -95,6 +96,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
         Route::post('/store-laporan', [GenerateLaporanController::class, 'store_laporan'])->name('store-laporan');
         Route::put('/update-laporan/{id}', [GenerateLaporanController::class, 'update_laporan'])->name('update-laporan');
         Route::delete('/delete-laporan/{id}', [GenerateLaporanController::class, 'delete_laporan'])->name('delete-laporan');
+
+        Route::get('report/export/', [GenerateLaporanController::class, 'export'])->name('export');
 
 });
 

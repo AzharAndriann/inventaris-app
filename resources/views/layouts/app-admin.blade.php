@@ -22,154 +22,94 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-        <script>
-            document.getElementById('openModal').addEventListener('click', function() {
-                document.getElementById('modal').classList.remove('hidden');
-            });
-        
-            document.querySelectorAll('#closeModal, #closeModalFooter').forEach(button => {
-                button.addEventListener('click', function() {
-                    document.getElementById('modal').classList.add('hidden');
-                });
-            });
-        </script>
+        @include('partials.sweetalert')
         <script>
 
-            @include('partials.sweetalert')
+
 
 
             
         
-        var options = {
-        chart: {
-            height: "100%",
-            maxWidth: "100%",
-            type: "area",
-            fontFamily: "Inter, sans-serif",
-            dropShadow: {
-            enabled: false,
+            var options = {
+            chart: {
+                height: "100%",
+                maxWidth: "100%",
+                type: "area",
+                fontFamily: "Inter, sans-serif",
+                dropShadow: {
+                enabled: false,
+                },
+                toolbar: {
+                show: false,
+                },
             },
-            toolbar: {
-            show: false,
+            tooltip: {
+                enabled: true,
+                x: {
+                show: false,
+                },
             },
-        },
-        tooltip: {
-            enabled: true,
-            x: {
-            show: false,
+            fill: {
+                type: "gradient",
+                gradient: {
+                opacityFrom: 0.55,
+                opacityTo: 0,
+                shade: "#1C64F2",
+                gradientToColors: ["#1C64F2"],
+                },
             },
-        },
-        fill: {
-            type: "gradient",
-            gradient: {
-            opacityFrom: 0.55,
-            opacityTo: 0,
-            shade: "#1C64F2",
-            gradientToColors: ["#1C64F2"],
+            dataLabels: {
+                enabled: false,
             },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        stroke: {
-            width: 6,
-        },
-        grid: {
-            show: false,
-            strokeDashArray: 4,
-            padding: {
-            left: 2,
-            right: 2,
-            top: 0
+            stroke: {
+                width: 6,
             },
-        },
-        series: [
-            {
-            name: "New users",
-            data: [65, 61, 62, 65, 63, 64, 66, 69, 62, 67, 61, 62],
-            color: "#d946ef",
+            grid: {
+                show: false,
+                strokeDashArray: 4,
+                padding: {
+                left: 2,
+                right: 2,
+                top: 0
+                },
             },
-        ],
-        xaxis: {
-            categories: ['January', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'December'],
-            labels: {
-            show: false,
+            series: [
+                {
+                name: "New users",
+                data: [65, 61, 62, 65, 63, 64, 66, 69, 62, 67, 61, 62],
+                color: "#d946ef",
+                },
+            ],
+            xaxis: {
+                categories: ['January', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'December'],
+                labels: {
+                show: false,
+                },
+                axisBorder: {
+                show: false,
+                },
+                axisTicks: {
+                show: false,
+                },
             },
-            axisBorder: {
-            show: false,
+            yaxis: {
+                show: false,
             },
-            axisTicks: {
-            show: false,
-            },
-        },
-        yaxis: {
-            show: false,
-        },
-        }
-
-        if (document.getElementById("area-chart") && typeof ApexCharts !== 'undefined') {
-        const chart = new ApexCharts(document.getElementById("area-chart"), options);
-        chart.render();
-        }
-
-
-        </script>
-
-
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const items = document.querySelectorAll('aside ul li');
-                const activeItemId = localStorage.getItem('activeItemId');
-
-                if (activeItemId) {
-                    document.querySelector(`aside ul li[data-id="${activeItemId}"]`).classList.add('active');
-                }
-
-                items.forEach(item => {
-                    item.addEventListener('click', () => {
-                        items.forEach(li => li.classList.remove('active'));
-                        item.classList.add('active');
-                        localStorage.setItem('activeItemId', item.getAttribute('data-id'));
-                    });
-                });
-            });
-        </script>
-        <style>
-            .active {
-                background: linear-gradient(to right, #db2777, #c026d3,#9333ea);
-                border-radius: 8px;
-                color: white !important;
             }
-        </style>
-
-        <script>
-            // Get elements
-            const modal = document.getElementById('modal');
-            const openModalButton = document.getElementById('openModal');
-            const closeModalButton = document.getElementById('closeModal');
-            const closeModalFooterButton = document.getElementById('closeModalFooter');
-
-            // Function to open the modal
-            openModalButton.addEventListener('click', () => {
-                modal.classList.remove('hidden');
-            });
-
-            // Function to close the modal
-            closeModalButton.addEventListener('click', () => {
-                modal.classList.add('hidden');
-            });
-
-            closeModalFooterButton.addEventListener('click', () => {
-                modal.classList.add('hidden');
-            });
-        </script>
-        
+    
+            if (document.getElementById("area-chart") && typeof ApexCharts !== 'undefined') {
+            const chart = new ApexCharts(document.getElementById("area-chart"), options);
+            chart.render();
+            }
+    
+    
+            </script>
+    
 
         {{-- <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')

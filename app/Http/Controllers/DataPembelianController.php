@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\UsersExport;
 use App\Models\DataBarang;
 use App\Models\DataPembelian;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DataPembelianController extends Controller
 {
@@ -88,4 +90,6 @@ class DataPembelianController extends Controller
         DataPembelian::where('kode_pembelian',$kode_pembelian)->delete();
         return redirect()->back();
     }
+
+
 }

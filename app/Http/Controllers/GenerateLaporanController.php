@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportMulti;
+use App\Exports\UsersExport;
 use App\Models\DataBarang;
 use App\Models\DataRuang;
 use App\Models\GenerateLaporan;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GenerateLaporanController extends Controller
 {
@@ -21,6 +24,7 @@ class GenerateLaporanController extends Controller
     {
         $data = ([
             'nama_barang'           => $request->nama_barang,
+            'nama_pemakai'          => $request->nama_pemakai,
             'jumlah_barang'         => $request->jumlah_barang,
             'tanggal_pembelian'     => $request->tanggal_pembelian,
             'tanggal_pemakaian'     => $request->tanggal_pemakaian,
@@ -30,4 +34,18 @@ class GenerateLaporanController extends Controller
         GenerateLaporan::create($data);
         return redirect()->route('admin.dashboard');
     }
+
+    public function delete_laporan($id)
+    {
+        GenerateLaporan::where('id',$id)->delete();
+        return redirect()->back();
+    }
+
+    public function export() 
+    {
+        return Excel::download(new ExportMulti, 'Laporan.xlsx');
+        
+    }
+
+
 }

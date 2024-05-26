@@ -17,8 +17,12 @@ class UserController extends Controller
 
     public function add_user()
     {
+        if(auth()->user()->can('view_dashboard_admin')){
         $role = Role::where('guard_name' , 'web')->get();
         return view('datauser.tambah_user' ,compact('role'));
+        }else {
+            return redirect()->back()->with('gagal','gagal');
+        }
     }
 
     public function store_user(Request $request)
@@ -26,6 +30,7 @@ class UserController extends Controller
         $user = ([
             'name'      => $request->name,
             'username'  => $request->username,
+            'role'      => $request->role,
             'password'  => Hash::make($request->password),
         ]);
 
@@ -58,6 +63,7 @@ class UserController extends Controller
         $user->update([
             'name'     => $request->name,
             'username' => $request->username,
+            'role'     => $data,
             'password' => $password,
         ]);
     

@@ -26,7 +26,15 @@
     <script>
         Swal.fire({
             title: "Tidak Berhasil!",
-            text: "Jumlah Data Barang kurang!",
+            text: "Jumlah Barang kurang!",
+            icon: "error"
+        });
+    </script>
+@elseif(session('gagal'))
+    <script>
+        Swal.fire({
+            title: "Tidak Berhasil!",
+            text: "Anda Bukan Admin!",
             icon: "error"
         });
     </script>

@@ -13,6 +13,7 @@ class GenerateLaporan extends Model
 
     protected $fillable = [
         'nama_barang',
+        'nama_pemakai',
         'tanggal_pembelian',
         'tanggal_pemakaian',
         'ruangan',

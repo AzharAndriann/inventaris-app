@@ -49,9 +49,11 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 px-3 mb-5">
-                        <div class="relative z-0 w-full group">
-                            <input type="text" name="tanggal_pembelian" id="bulan" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-purple-600 peer" placeholder=" " value="{{ $data->bulan }}" />
-                            <label for="bulan" class="peer-focus:font-medium absolute text-sm text-purple-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-purple-700 peer-focus:dark:text-purple-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Bulan</label>
+                        <div class="w-full md:w-1/2 px-3 mb-5">
+                            <div class="relative z-0 w-full group">
+                                <input type="date" name="tanggal_pembelian" id="bulan" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-purple-600 peer" placeholder=" " />
+                                <label for="bulan" class="peer-focus:font-medium absolute text-sm text-purple-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-purple-700 peer-focus:dark:text-purple-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Tanggal Pembelian</label>
+                            </div>
                         </div>
                     </div>
                 </div>

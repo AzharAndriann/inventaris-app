@@ -15,6 +15,7 @@ class DataPemakaian extends Model
         'kode_pemakaian',
         'kode_barang',
         'nama_barang',
+        'nama_pemakai',
         'jumlah_pakai',
         'tanggal_pakai',
         'nama_ruangan',
