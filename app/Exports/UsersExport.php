@@ -35,6 +35,10 @@ class UsersExport implements FromCollection, WithHeadings
             $sheet->getColumnDimension($columnID)->setAutoSize(true);
         }
 
-        $sheet->setTitle('DataUser');
+        
+    }
+
+    public function title() : string{
+        return 'Data User';
     }
 }

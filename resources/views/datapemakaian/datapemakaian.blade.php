@@ -12,6 +12,13 @@
         <div class="antialiased font-sans min-h-screen">
             <div class="py-8 px-4 w-1/1 ms-[323px] rounded-lg me-[6px] mt-[80px]">
                 <div class="overflow-x-auto bg-light1 bg-opacity-70 backdrop-blur-lg shadow-lg p-2 rounded-lg">
+                    <div class="flex">
+                        <form action="{{ route('admin.export-date')}}" method="POST">
+                            @csrf
+                            <input type="date" name="tanggal" class="text-black rounded-md ">
+                            <button type="submit" class="text-black " >Export</button>
+                        </form>
+                    </div>
                     <div class="flex justify-between items-center ps-3 pe-3 mt-3 mb-4">
                         <h1 class="text-light7 text-lg font-bold">Data Pemakaian</h1>
                         <a href="{{ route('admin.add-pemakaian') }}" class="bg-gradient-to-br from-pink-600 via-fuchsia-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:bg-gradient-to-bl">Tambah Pemakaian</a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\GenerateLaporanTanggal;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataBarangController;
@@ -91,13 +92,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::delete('/delete-pemakaian/{id}', [DataPemakaianController::class, 'delete_pemakaian'])->name('delete-pemakaian');
 
         // laporan
-        Route::get('/add-laporan', [GenerateLaporanController::class, 'add_laporan'])->name('add-laporan');
-        Route::get('/edit-laporan/{id}', [GenerateLaporanController::class, 'edit_laporan'])->name('edit-laporan');
-        Route::post('/store-laporan', [GenerateLaporanController::class, 'store_laporan'])->name('store-laporan');
-        Route::put('/update-laporan/{id}', [GenerateLaporanController::class, 'update_laporan'])->name('update-laporan');
-        Route::delete('/delete-laporan/{id}', [GenerateLaporanController::class, 'delete_laporan'])->name('delete-laporan');
+    Route::get('/add-laporan', [GenerateLaporanController::class, 'add_laporan'])->name('add-laporan');
+    Route::get('/edit-laporan/{id}', [GenerateLaporanController::class, 'edit_laporan'])->name('edit-laporan');
+    Route::post('/store-laporan', [GenerateLaporanController::class, 'store_laporan'])->name('store-laporan');
+    Route::put('/update-laporan/{id}', [GenerateLaporanController::class, 'update_laporan'])->name('update-laporan');
+    Route::delete('/delete-laporan/{id}', [GenerateLaporanController::class, 'delete_laporan'])->name('delete-laporan');
 
-        Route::get('report/export/', [GenerateLaporanController::class, 'export'])->name('export');
+    Route::get('report/export/', [GenerateLaporanController::class, 'export'])->name('export');
+
+
+    Route::post('export/date', [GenerateLaporanController::class, 'export_date'])->name('export-date');
+
+
 
 });
 

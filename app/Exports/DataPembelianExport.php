@@ -39,6 +39,10 @@ class DataPembelianExport implements FromCollection, WithHeadings
             $sheet->getColumnDimension($columnID)->setAutoSize(true);
         }
 
-        $sheet->setTitle('DataPembelian');
+        
+    }
+
+    public function title() : string{
+        return 'Data Pembelian';
     }
 }

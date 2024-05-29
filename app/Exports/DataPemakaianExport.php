@@ -38,6 +38,10 @@ class DataPemakaianExport implements FromCollection, WithHeadings
             $sheet->getColumnDimension($columnID)->setAutoSize(true);
         }
 
-        $sheet->setTitle('DataPemakaian');
+        
+    }
+
+    public function title() : string{
+        return 'Data Pemakaian';
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DataPemakaianTanggal;
 use App\Exports\ExportMulti;
 use App\Exports\UsersExport;
 use App\Models\DataBarang;
@@ -45,6 +46,12 @@ class GenerateLaporanController extends Controller
     {
         return Excel::download(new ExportMulti, 'Laporan.xlsx');
         
+    }
+
+    public function export_date(Request $request)
+    {
+        $tanggal = $request->input('tanggal');
+        return Excel::download(new DataPemakaianTanggal($tanggal), 'datapemakaiantgl.xlsx');
     }
 
 

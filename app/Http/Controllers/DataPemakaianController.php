@@ -22,10 +22,20 @@ class DataPemakaianController extends Controller
 
     public function add_pemakaian()
     {
-        $barang = DataBarang::all();
-        $ruang = DataRuang::all();
-        $username = Auth::user()->name;
-        return view('datapemakaian.tambah-datapemakaian',compact('barang','ruang','username'));
+        if(auth()->user()->can('view_dashboard_admin')){
+            $barang = DataBarang::all();
+            $ruang = DataRuang::all();
+            $username = Auth::user()->name;
+            return view('datapemakaian.tambah-datapemakaian',compact('barang','ruang','username'));
+        }elseif(auth()->user()->can('view_dashboard_operator')){
+            $barang = DataBarang::all();
+            $ruang = DataRuang::all();
+            $username = Auth::user()->name;
+            return view('datapemakaian.tambah-datapemakaian',compact('barang','ruang','username'));
+        }else{
+            return redirect()->back();
+        }
+
     }
 
     public function store_pemakaian(Request $request)

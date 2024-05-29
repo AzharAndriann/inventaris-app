@@ -39,7 +39,11 @@ class DataBarangExport implements FromCollection, WithHeadings
             $sheet->getColumnDimension($columnID)->setAutoSize(true);
         }
 
-        $sheet->setTitle('DataBarang');
+    
+    }
+    
+    public function title() : string{
+        return 'Data Barang';
     }
 
     

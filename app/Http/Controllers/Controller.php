@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class Controller extends BaseController
 {
@@ -50,5 +51,17 @@ class Controller extends BaseController
             'user' => $user
         ]);
 
+    }
+
+    public function search(Request $request)
+    {
+        $date = $request->input('date');
+
+        $tanggal = DataPemakaian::where('tanggal_pakai', 'like', '%'.$date.'%')
+        ->get();
+        $data = DataPemakaian::all();
+
+
+        return view('datapemakaian.datapemakaian',compact('data','tanggal'));
     }
 }

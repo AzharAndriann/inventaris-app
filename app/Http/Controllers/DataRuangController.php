@@ -43,6 +43,8 @@ class DataRuangController extends Controller
             'nama_ruangan' => $request->nama_ruangan,
         ]);
 
+        dd($ruang);
+
         DataRuang::where('id',$id)->update($ruang);
         return redirect()->route('admin.data-ruang');
     }
